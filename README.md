@@ -1,146 +1,385 @@
-## Hi there! this my new project
-Welcome to the Bingo App Deployment project! This project demonstrates how to deploy a Bingo application using modern DevOps tools and practices, following a DevSecOps approach.
+# 🚀 Bingo DevSecOps Project on AWS EKS
 
-## 🛠️ **Tools & Services Used**
-
-| **Category**       | **Tools**                                                                                                                                                                                                 |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Version Control** | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)                                                                                                       |
-| **CI/CD**           | ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)                                                                                                    |
-| **Code Quality**    | ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white)                                                                                              |
-| **Containerization**| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)                                                                                                       |
-| **Orchestration**   | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)                                                                                          |
-| **Monitoring**      | ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) |
-| **Security**        | ![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white) ![Trivy](https://img.shields.io/badge/Trivy-00979D?style=flat-square&logo=trivy&logoColor=white)         |
-
----
-## 🚦 **Project Stages**
-
-### **Phase 1: Deployment to Docker Container**
-- Containerize the application using Docker.
-- Build and push Docker images to a container registry.
-- Run the application in a Docker container.
-
-### **Phase 2: Deployment to EKS Cluster with Monitoring**
-- Deploy the application to an **Amazon EKS (Elastic Kubernetes Service)** cluster.
-- Set up **Prometheus** and **Grafana** for monitoring and visualization.
-- Implement **Trivy** for vulnerability scanning and **OWASP** for security best practices.
+An end-to-end DevSecOps project demonstrating CI/CD automation, security scanning, containerization, Kubernetes orchestration, monitoring, and cloud deployment using AWS EKS.
 
 ---
 
-## 📂 **Code Repository**
-Explore the code and contribute to the project:  
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aseemakram19/bingo1.git)
+# 📌 Project Overview
+
+This project automates the complete software delivery lifecycle for the Bingo application using modern DevSecOps tools and practices.
+
+The pipeline includes:
+
+* Source Code Management with GitHub
+* CI/CD automation with Jenkins
+* Static Code Analysis using SonarQube
+* Dependency Vulnerability Scanning using OWASP Dependency Check
+* Filesystem & Container Security Scanning using Trivy
+* Docker image build and push
+* Kubernetes deployment on AWS EKS
+* Monitoring with Prometheus & Grafana
+* HTTP Endpoint Monitoring using Blackbox Exporter
+* Infrastructure provisioning using Terraform
 
 ---
-## 📹 **Project Video**
-Watch the step-by-step deployment process:  
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=HeGnExuCVmQ&t=616s)
 
----
-## 🚀 **Other DevOps Projects**
+# 🏗️ Project Architecture
 
-| **Project**                                | **Video Link**                                                                                   |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **JAVA APPLICATION DEPLOYMENT Project**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=R98DHKqAEos) |
-
-## 🤝 **Connect with Me**
-
-Let's connect and discuss DevOps!  
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammed-aseem-akram/)  
-
-The objective of this project was to learn how to use web sockets and how to create a multiplayer game. It was created using Next.js, React and Sockets.io. You can check it out  for the English version. Feel free to modify as you wish.
-
-If you want the logic of the game bingo, go to utils → bingo.js.
-
-
-
-## Getting Started
-
-Install node.js 16  version  v16.20.2 combatiable with our application
-        npm 8.19.4  version 
-First, run the development server:
-
-Follow this sequence to test out app :
-1. cd bingo1
-2. npm install
-3. npm run dev
-
-to run in background
-nohup npm run dev &
-
-Explaination below:
-
-cd bingo1: Change directory to "bingo1" to navigate into the project's root directory.
-
-npm install: Install project dependencies using npm, ensuring required packages are downloaded and configured.
-
-npm run dev: Run the development script, typically used to start a development server or execute other development-related tasks.
-
-nohup npm run dev &: Run the "npm run dev" command in the background using nohup, allowing it to continue running even after the terminal is closed.
-
-
-
-
-
+```text
+GitHub
+   ↓
+Jenkins Pipeline
+   ↓
+SonarQube Analysis
+   ↓
+OWASP Dependency Check
+   ↓
+Trivy Filesystem Scan
+   ↓
+Docker Build
+   ↓
+Trivy Image Scan
+   ↓
+DockerHub Push
+   ↓
+AWS EKS Deployment
+   ↓
+Prometheus Monitoring
+   ↓
+Grafana Dashboards
 ```
-Docker Container application 
 
-docker build -t imagename rootdir
+---
 
+# 🛠️ Tools & Technologies Used
 
-docker build -t bingo .
+| Category               | Tools                                  |
+| ---------------------- | -------------------------------------- |
+| Version Control        | GitHub                                 |
+| CI/CD                  | Jenkins                                |
+| Code Quality           | SonarQube                              |
+| Security               | OWASP Dependency Check, Trivy          |
+| Containerization       | Docker                                 |
+| Orchestration          | Kubernetes, AWS EKS                    |
+| Monitoring             | Prometheus, Grafana, Blackbox Exporter |
+| Infrastructure as Code | Terraform                              |
+| Cloud                  | AWS                                    |
 
-docker run -p 3000:3000 -d --name bingo your-image-name
+---
 
+# ☁️ AWS Services Used
 
+* Amazon EC2
+* Amazon EKS
+* Elastic Load Balancer
+* IAM
+* VPC
+* CloudFormation
 
-docker run -p 3000:3000 -d --name bingoapp bingo
+---
 
+# 📂 Repository Structure
 
-# Build and start the Docker container
-docker-compose up -d
-
-To stop the containers, you can use the following command:
-# Stop the Docker containers
-
-docker-compose down
-
-# Restart the Docker after permissions Granted
-
-sudo usermod -aG docker ubuntu
-
-sudo usermod -aG jenkins $USER
-
-sudo systemctl restart docker
-
-docker-compose build
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Example
-
-You can create a room where multiplayers can join to participate:
-![](https://github.com/andres0ares/bingo/blob/main/public/bingo_prev1.gif)
-
-Changes will reflect on all participants' screens in the room:
-![](https://github.com/andres0ares/bingo/blob/main/public/bingo_prev2.gif)
-
-## FlowChart
-
-```mermaid
-flowchart TB
-  home --> cond{select}
-  cond --> cr[create room]
-  cond --> jr[join room]
-  cr --> wp[wait players / start game]
-  jr --> ws[wait start game]
-  wp --> hd[host display]
-  ws --> pd[player display]
-  hd --> dw[display winner]
-  pd --> dw
-  
+```bash
+.
+├── Dockerfile
+├── Jenkinsfile
+├── Kubernetes/
+├── Terraform/
+├── manifests/
+├── monitoring/
+├── utils/
+└── README.md
 ```
+
+---
+
+# ⚙️ Jenkins Pipeline Stages
+
+## 1. Clean Workspace
+
+Removes previous build artifacts.
+
+## 2. Git Clone
+
+Fetches latest source code from GitHub.
+
+## 3. SonarQube Analysis
+
+Performs static code analysis and quality checks.
+
+## 4. Quality Gate
+
+Validates code quality against SonarQube Quality Gate.
+
+## 5. Install Dependencies
+
+Installs application dependencies.
+
+## 6. OWASP Dependency Check
+
+Scans project dependencies for known CVEs.
+
+## 7. Trivy Filesystem Scan
+
+Scans source code and filesystem for vulnerabilities.
+
+## 8. Docker Build
+
+Builds Docker image for the application.
+
+## 9. Trivy Image Scan
+
+Scans Docker image for vulnerabilities.
+
+## 10. Docker Push
+
+Pushes Docker image to DockerHub.
+
+## 11. Kubernetes Deployment
+
+Deploys application to AWS EKS cluster.
+
+---
+
+# 🔐 Security Implementation
+
+## SonarQube
+
+* Static code analysis
+* Code smells detection
+* Bug detection
+* Quality Gate validation
+
+## OWASP Dependency Check
+
+* Dependency vulnerability scanning
+* CVE detection
+* Security reporting
+
+## Trivy
+
+* Filesystem scanning
+* Docker image scanning
+* Vulnerability detection
+* Secret scanning
+
+---
+
+# ☸️ Kubernetes Deployment
+
+The application is deployed on AWS EKS using Kubernetes manifests.
+
+## Common Commands
+
+### Update kubeconfig
+
+```bash
+aws eks update-kubeconfig --region ap-south-1 --name bingo-cluster
+```
+
+### Check nodes
+
+```bash
+kubectl get nodes
+```
+
+### Check pods
+
+```bash
+kubectl get pods -o wide
+```
+
+### Apply manifests
+
+```bash
+kubectl apply -f manifest.yml
+```
+
+### Get services
+
+```bash
+kubectl get svc
+```
+
+### Get deployment logs
+
+```bash
+kubectl logs -f deployment/bingo-deployment
+```
+
+---
+
+# 📊 Monitoring Setup
+
+## Prometheus
+
+Used for:
+
+* Metrics collection
+* Target scraping
+* Monitoring Kubernetes workloads
+
+## Grafana
+
+Used for:
+
+* Dashboard visualization
+* Metrics analysis
+* Performance monitoring
+
+## Blackbox Exporter
+
+Used for:
+
+* HTTP endpoint probing
+* Uptime monitoring
+* SSL monitoring
+* Latency measurement
+
+---
+
+# 📈 Monitored Metrics
+
+* probe_success
+* probe_http_status_code
+* probe_duration_seconds
+* SSL certificate expiry
+* Application uptime
+* HTTP response latency
+
+---
+
+# 🐳 Docker Setup
+
+## Build Docker Image
+
+```bash
+docker build -t bingo-app .
+```
+
+## Run Container
+
+```bash
+docker run -d -p 3000:3000 bingo-app
+```
+
+---
+
+# 🧱 Terraform
+
+Terraform is used for infrastructure provisioning.
+
+## Initialize Terraform
+
+```bash
+terraform init
+```
+
+## Validate Configuration
+
+```bash
+terraform validate
+```
+
+## Plan Infrastructure
+
+```bash
+terraform plan
+```
+
+## Apply Infrastructure
+
+```bash
+terraform apply
+```
+
+---
+
+# 🚀 Application Access
+
+## Application
+
+```text
+http://<LOADBALANCER-IP>:3000
+```
+
+## Jenkins
+
+```text
+http://<JENKINS-IP>:8080
+```
+
+## SonarQube
+
+```text
+http://<SONARQUBE-IP>:9000
+```
+
+## Grafana
+
+```text
+http://<GRAFANA-IP>:3000
+```
+
+## Prometheus
+
+```text
+http://<PROMETHEUS-IP>:9090
+```
+
+---
+
+# 📷 Project Screenshots
+
+* Jenkins Pipeline
+* SonarQube Dashboard
+* Grafana Dashboard
+* Prometheus Targets
+* AWS EKS Cluster
+* Running Application
+
+---
+
+# 🧠 Key Learnings
+
+Through this project, I gained hands-on experience with:
+
+* DevSecOps workflows
+* CI/CD automation
+* Kubernetes deployments
+* Infrastructure provisioning
+* Container security
+* Monitoring and observability
+* AWS cloud services
+* Security integration in pipelines
+
+---
+
+# 🔥 Future Improvements
+
+* ArgoCD GitOps integration
+* Helm chart deployment
+* HTTPS with Ingress Controller
+* Alertmanager integration
+* Slack/Email notifications
+* Horizontal Pod Autoscaling
+* Centralized logging using EFK stack
+
+---
+
+# 👨‍💻 Author
+
+Neeraj Yadav
+
+GitHub:
+[https://github.com/nrjydv1997](https://github.com/nrjydv1997)
+
+LinkedIn:
+[https://linkedin.com/in/neeraj-yadav-9540721a0](https://linkedin.com/in/neeraj-yadav-9540721a0)
+
+---
+
+# ⭐ If You Like This Project
+
+Give this repository a star ⭐ and feel free to fork it.
